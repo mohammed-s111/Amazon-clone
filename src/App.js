@@ -13,34 +13,28 @@ function App() {
   const auth = getAuth();
   const [{}, dispatch] = useStateValue();
   const location = useLocation();
-   useEffect(() => {
-
-onAuthStateChanged(auth, (authUser) => {
-  if (authUser) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = authUser.uid;
-    // ...
-     dispatch({
-       type: "SET_USER",
-       user: authUser,
-     });
-  } else {
-    // User is signed out
-    // ...
-     dispatch({
-       type: "SET_USER",
-       user: null,
-       // user: "",
-     });
-  }
-});
-
-
-
-   },[])
-
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = authUser.uid;
+        // ...
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        // User is signed out
+        // ...
+        dispatch({
+          type: "SET_USER",
+          user: null,
+          // user: "",
+        });
+      }
+    });
+  }, []);
 
   return (
     <div className="App">
