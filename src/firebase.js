@@ -2,18 +2,31 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseApp = initializeApp({
-  apiKey: "AIzaSyC5ZFdiO_a9z6iL4L41ThTl_3y2Rn7JY-8",
-  authDomain: "clone-c1a70.firebaseapp.com",
-  projectId: "clone-c1a70",
-  storageBucket: "clone-c1a70.appspot.com",
-  messagingSenderId: "957447721660",
-  appId: "1:957447721660:web:a6005fbd5f72054c9e36b9",
-  measurementId: "G-4SXDE0WTBZ",
-});
 
-const auth = getAuth(firebaseApp);
-const db = getFirestore(firebaseApp);
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-export { db, auth };
-export default firebaseApp;
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREABSE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { auth, db };
+
+//// this is Cloud Firestore new rule we need on the Browser to change
+
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if true;
+//     }
+//   }
+// }

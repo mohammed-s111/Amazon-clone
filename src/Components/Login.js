@@ -1,58 +1,36 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import { auth } from "../firebase";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
 function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const auth = getAuth();
-
+  const navigate = useNavigate();
   const signIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-        //   console.log(user)
-        // ...
-        if (user) {
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+    signInWithEmailAndPassword(auth, email, password).then((auth) => {
+      if (auth) {
+        navigate("/");
+      }
+    });
   };
-
   const register = (e) => {
     e.preventDefault();
-
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          // ...
-        //   console.log(user);
-        if (user) {
+      .then((auth) => {
+        if (auth) {
           navigate("/");
         }
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        alert(error.message);
       });
   };
-
   return (
     <div className="login">
       <Link to="/">
@@ -96,7 +74,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        <button onClick={register} className="login__registerButton">
+        <button className="login__registerButton" onClick={register}>
           Create your Amazon Account
         </button>
       </div>

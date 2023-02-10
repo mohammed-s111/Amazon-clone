@@ -3,11 +3,11 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const { user, basket } = useStateValue();
 
   const handleAuthentication = () => {
     if (user) {
