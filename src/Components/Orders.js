@@ -1,40 +1,38 @@
-import React from "react";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
+import Order from "./Order";
 import "./Orders.css";
-// import moment from "moment";
-// import CheckoutProduct from "./CheckoutProduct";
-// import { NumericFormat } from "react-number-format";
-
-function Orders({ order }) {
+const Orders = () => {
+  const [orders, setOrders] = useState([]);
+  const { user } = useStateValue();
+  useEffect(() => {
+    if (user) {
+      const collRef = collection(db, "users", user?.uid, "orders");
+      const orderedRef = query(collRef, orderBy("created", "desc"));
+      onSnapshot(orderedRef, (querySnapshot) => {
+        setOrders(
+          querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+      });
+    } else {
+      setOrders([]);
+    }
+  }, [user]);
   return (
-    <div className="order">
-      <h2>Order</h2>
-      {/* <p>{moment.unix(order.data.created).format("MMMM DO YYYY, h:mma")}</p>
-      <p className="order__id">
-        <small>{order.id}</small>
-      </p>
-      {order.data.basket?.map((item, index) => (
-        <CheckoutProduct
-          key={index}
-          id={item.id}
-          title={item.title}
-          image={item.image}
-          price={item.price}
-          rating={item.rating}
-          hideButton
-        />
-      ))}
-      <NumericFormat
-        renderText={(value) => (
-          <h3 className="order__total">Order Total: {value}</h3>
-        )}
-        decimalScale={2}
-        value={order.data.amount / 100}
-        displayType={"text"}
-        thousandSeparator={true}
-        prefix={"$"}
-      /> */}
+    <div className="orders">
+      <h1>Your Orders</h1>
+      <div className="orders-order">
+        {orders?.map((order) => (
+          <Order order={order} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Orders;

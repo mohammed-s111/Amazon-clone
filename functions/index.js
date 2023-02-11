@@ -1,8 +1,7 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-
-process.env.STRIPE_SECRET_KEY;
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 // App config
 const app = express();
 
@@ -26,6 +25,7 @@ app.post("/payments/create", async (req, res) => {
     clientSecret: paymentIntent.client_secret,
   });
 });
+
 
 
 
