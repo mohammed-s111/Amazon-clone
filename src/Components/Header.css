@@ -72,3 +72,7 @@
   margin-right: 10px;
   color: white;
 }
+
+.header__clearLink{
+  text-decoration: none;
+}

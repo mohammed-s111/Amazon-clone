@@ -1,31 +1,28 @@
-import React from 'react'
-import './Home.css'
-import Product from './Product';
+import React from "react";
+import "./Home.css";
+import Product from "./Product";
+import Slider from "./Slider/Slider";
 
 function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        <img
-          className="home__image"
-          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-          alt=""
-        />
+        <Slider />
 
         <div className="home__row">
           <Product
             id="12321341"
-            title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-            price={11.96}
+            title="The 7 Habits of Highly Effective Teens Paperback – Illustrated"
+            price={13.99}
             rating={5}
-            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
+            image="https://m.media-amazon.com/images/I/71oOAa+N3GL._AC_SR360,240_QL70_.jpg"
           />
           <Product
             id="49538094"
-            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
+            title="Alen FLEX Air Purifier, Quiet Air Flow for Large Rooms, 700 SqFt, Air Cleaner for Allergens, Dust, Mold, Pet Odors with Long Filter Life"
+            price={279.0}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
+            image="https://m.media-amazon.com/images/I/813ks9Fu1WS._AC_UL480_FMwebp_QL65_.jpg"
           />
         </div>
 
@@ -46,20 +43,27 @@ function Home() {
           />
           <Product
             id="3254354345"
-            title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
+            title="Apple 2022 12.9-inch iPad Pro (Wi-Fi + Cellular, 128GB) - Space Gray (6th Generation)"
             price={598.99}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
+            image="https://m.media-amazon.com/images/I/81hAx31maUL._AC_UY327_FMwebp_QL65_.jpg"
           />
         </div>
 
         <div className="home__row">
           <Product
             id="90829332"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
-            price={1094.98}
+            title='Rove R2- 4K Dash Cam Built in WiFi GPS Car Dashboard Camera Recorder with UHD 2160P, 2.4" LCD, 150° Wide Angle, WDR, Night Vision'
+            price={119.98}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
+            image="https://images-na.ssl-images-amazon.com/images/I/81Qi6a1mzuL._AC_UL675_SR675,480_.jpg"
+          />
+          <Product
+            id="90829332"
+            title="Garmin Dash Cam Mini 2, Tiny Size, 1080p and 140-degree FOV, Monitor Your Vehicle While Away w/ New Connected Features, Voice Control"
+            price={129.98}
+            rating={4}
+            image="https://m.media-amazon.com/images/I/71IgOp+tVFS._AC_SY200_.jpg"
           />
         </div>
       </div>
@@ -67,4 +71,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;
