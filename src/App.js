@@ -11,7 +11,7 @@ import Payment from "./Components/Payment";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import "./App.css";
-
+import Footer from "./Components/Footer";
 function App() {
   const { dispatch } = useStateValue();
   const promise = loadStripe(
@@ -69,6 +69,7 @@ function App() {
             <>
               <Header />
               <Home />
+              <Footer />
             </>
           }
         />

@@ -16,12 +16,15 @@ function Product({ id, title, image, price, rating }) {
         rating: rating,
       },
     });
+    
   };
-
+const truncate = (str, n) => {
+  return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+};
   return (
     <div className="product">
       <div className="product__info">
-        <p>{title}</p>
+        <p>{truncate(title, 26)}</p>
         <p className="product__price">
           <small>$</small>
           <strong>{price}</strong>
@@ -30,12 +33,12 @@ function Product({ id, title, image, price, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p key={i}>🌟</p>
+              <p key={i}>⭐️</p>
             ))}
         </div>
       </div>
 
-      <img src={image} alt="" />
+      <img src={image} alt="Product_Image" />
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>

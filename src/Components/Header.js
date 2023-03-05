@@ -5,7 +5,7 @@ import { MdSearch } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
-
+import Logo from "./images/header-logo.png";
 function Header() {
   const { user, basket } = useStateValue();
 
@@ -25,11 +25,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img
-          className="header__logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          alt="logo"
-        />
+        <img className="header__logo" src={Logo} alt="logo" />
       </Link>
       <div className="header__search">
         <input className="header__searchInput" type="text" />

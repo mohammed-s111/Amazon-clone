@@ -21,7 +21,7 @@ function Home() {
             id="49538094"
             title="Alen FLEX Air Purifier, Quiet Air Flow for Large Rooms, 700 SqFt, Air Cleaner for Allergens, Dust, Mold, Pet Odors with Long Filter Life"
             price={279.0}
-            rating={4}
+            rating={5}
             image="https://m.media-amazon.com/images/I/813ks9Fu1WS._AC_UL480_FMwebp_QL65_.jpg"
           />
         </div>
@@ -31,7 +31,7 @@ function Home() {
             id="4903850"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
             price={199.99}
-            rating={3}
+            rating={5}
             image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
           />
           <Product
@@ -45,7 +45,7 @@ function Home() {
             id="3254354345"
             title="Apple 2022 12.9-inch iPad Pro (Wi-Fi + Cellular, 128GB) - Space Gray (6th Generation)"
             price={598.99}
-            rating={4}
+            rating={5}
             image="https://m.media-amazon.com/images/I/81hAx31maUL._AC_UY327_FMwebp_QL65_.jpg"
           />
         </div>
@@ -62,7 +62,7 @@ function Home() {
             id="90829332"
             title="Garmin Dash Cam Mini 2, Tiny Size, 1080p and 140-degree FOV, Monitor Your Vehicle While Away w/ New Connected Features, Voice Control"
             price={129.98}
-            rating={4}
+            rating={5}
             image="https://m.media-amazon.com/images/I/71IgOp+tVFS._AC_SY200_.jpg"
           />
         </div>

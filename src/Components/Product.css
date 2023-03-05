@@ -11,7 +11,7 @@
   background-color: white;
   z-index: 1;
   box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.75);
-  transition: transform 1.0
+  transition: transform 0.1s ease-in;
 }
 .product:hover{
   transform: scale(1.05);
@@ -22,14 +22,14 @@
   display: flex;
 }
 
-.product  img {
+.product > img {
   max-height: 200px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
-.product  button {
+.product > button {
   background: #f0c14b;
   border: 1px solid;
   margin-top: 10px;

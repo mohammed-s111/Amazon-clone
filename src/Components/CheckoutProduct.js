@@ -1,7 +1,7 @@
 import React from "react";
 import "./CheckoutProduct.css";
 import { useStateValue } from "../StateProvider";
-
+import { MdStars } from "react-icons/md";
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
   const { dispatch } = useStateValue();
 
